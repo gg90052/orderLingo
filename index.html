@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="飯譯 OrderLingo iOS App 隱私權政策：了解菜單照片、雲端 AI 辨識、匿名配額與本機歷史如何被處理。">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f5f0e5">
+  <title>隱私權政策｜飯譯 OrderLingo</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f0e5;
+      --paper-deep: #e8dfce;
+      --card: #fffdf7;
+      --ink: #252b27;
+      --muted: #64685e;
+      --green: #244c3a;
+      --green-soft: #dce6dd;
+      --stamp: #ad493d;
+      --rule: #c8bda8;
+      --focus: #1c6e9d;
+      --shadow: 0 20px 50px rgba(58, 46, 31, .08);
+      --serif: "Klee One", "Noto Serif TC", "Songti TC", "STSong", serif;
+      --sans: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 1.5rem;
+    }
+
+    body {
+      min-width: 320px;
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, transparent 0 5.2rem, rgba(173, 73, 61, .14) 5.2rem 5.3rem, transparent 5.3rem),
+        repeating-linear-gradient(0deg, rgba(36, 76, 58, .035) 0 1px, transparent 1px 31px),
+        var(--paper);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--green);
+      text-decoration-color: rgba(36, 76, 58, .45);
+      text-underline-offset: .2em;
+    }
+
+    a:hover { text-decoration-color: currentColor; }
+
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 20;
+      top: .75rem;
+      left: .75rem;
+      padding: .65rem 1rem;
+      color: white;
+      background: var(--green);
+      transform: translateY(-180%);
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .site-header {
+      position: relative;
+      overflow: hidden;
+      padding: max(4.5rem, calc(env(safe-area-inset-top) + 3rem)) 1.25rem 3.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .site-header::after {
+      content: "PRIVACY\A飯譯\AOrderLingo";
+      position: absolute;
+      top: 2.2rem;
+      right: clamp(1rem, 8vw, 8rem);
+      display: grid;
+      place-items: center;
+      width: 8.2rem;
+      height: 8.2rem;
+      color: var(--stamp);
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      font: 700 .78rem/1.35 var(--sans);
+      text-align: center;
+      white-space: pre;
+      letter-spacing: .13em;
+      opacity: .12;
+      transform: rotate(9deg);
+    }
+
+    .header-inner,
+    .layout,
+    .site-footer-inner {
+      width: min(1120px, 100%);
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 .65rem;
+      color: var(--stamp);
+      font-size: .78rem;
+      font-weight: 750;
+      letter-spacing: .16em;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--serif);
+      letter-spacing: .015em;
+      text-wrap: balance;
+    }
+
+    h1 {
+      max-width: 12ch;
+      margin: 0;
+      color: var(--green);
+      font-size: clamp(2.65rem, 7vw, 5.4rem);
+      font-weight: 600;
+      line-height: 1.05;
+    }
+
+    .lede {
+      max-width: 42rem;
+      margin: 1.3rem 0 0;
+      color: var(--muted);
+      font-family: var(--serif);
+      font-size: clamp(1.05rem, 2.2vw, 1.28rem);
+    }
+
+    .lede span { display: block; }
+
+    .lede [lang="en"] {
+      margin-top: .15rem;
+      font-family: var(--sans);
+      font-size: .82em;
+      letter-spacing: .025em;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem 1.2rem;
+      margin-top: 1.4rem;
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 14rem minmax(0, 1fr);
+      gap: clamp(2rem, 6vw, 6rem);
+      padding: 3rem 1.25rem 6rem;
+    }
+
+    .toc {
+      align-self: start;
+      position: sticky;
+      top: 1.5rem;
+      font-size: .88rem;
+    }
+
+    .toc-title {
+      margin: 0 0 .75rem;
+      color: var(--stamp);
+      font-size: .75rem;
+      font-weight: 750;
+      letter-spacing: .14em;
+    }
+
+    .toc ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: section;
+      border-top: 1px solid var(--rule);
+    }
+
+    .toc li {
+      counter-increment: section;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .toc a {
+      display: grid;
+      grid-template-columns: 1.8rem 1fr;
+      gap: .35rem;
+      padding: .65rem 0;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .toc a::before {
+      content: counter(section, decimal-leading-zero);
+      color: var(--stamp);
+      font: 700 .68rem/1.6 var(--sans);
+    }
+
+    .toc a:hover { color: var(--green); }
+
+    main { min-width: 0; }
+
+    .summary {
+      margin: 0 0 3.5rem;
+      padding: clamp(1.4rem, 4vw, 2.25rem);
+      background: rgba(255, 253, 247, .8);
+      border: 1px solid var(--rule);
+      border-left: 5px solid var(--green);
+      box-shadow: var(--shadow);
+    }
+
+    .summary h2 {
+      margin-top: 0;
+      color: var(--green);
+      font-size: 1.45rem;
+    }
+
+    .summary ul { margin-bottom: 0; }
+
+    section {
+      padding: .3rem 0 2.7rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    section + section { padding-top: 2.7rem; }
+
+    section h2 {
+      margin: 0 0 1.1rem;
+      color: var(--green);
+      font-size: clamp(1.65rem, 3.5vw, 2.2rem);
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    section h3 {
+      margin: 2rem 0 .65rem;
+      color: var(--ink);
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    p { margin: .7rem 0 1rem; }
+
+    ul { padding-left: 1.25rem; }
+
+    li + li { margin-top: .45rem; }
+
+    code {
+      padding: .1em .3em;
+      background: var(--green-soft);
+      font-size: .88em;
+    }
+
+    .identity {
+      display: grid;
+      grid-template-columns: 9.5rem 1fr;
+      margin: 1.4rem 0 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .identity dt,
+    .identity dd {
+      margin: 0;
+      padding: .75rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .identity dt {
+      color: var(--muted);
+      font-size: .86rem;
+      font-weight: 700;
+    }
+
+    .callout {
+      margin: 1.4rem 0;
+      padding: 1rem 1.2rem;
+      color: #5d2924;
+      background: rgba(173, 73, 61, .075);
+      border-left: 4px solid var(--stamp);
+    }
+
+    .provider {
+      margin-top: 1.4rem;
+      padding: 1.25rem 0 1.25rem 1.25rem;
+      border-left: 2px solid var(--rule);
+    }
+
+    .provider h3 { margin-top: 0; }
+
+    .retention-list {
+      margin: 1.5rem 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .retention-item {
+      display: grid;
+      grid-template-columns: minmax(9rem, 1fr) 2fr;
+      gap: 1.5rem;
+      padding: 1.05rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .retention-item dt,
+    .retention-item dd { margin: 0; }
+
+    .retention-item dt {
+      color: var(--green);
+      font-weight: 750;
+    }
+
+    .retention-item dd { color: var(--muted); }
+
+    .contact-block {
+      padding: 1.5rem;
+      background: var(--green);
+      color: #f9f5e9;
+    }
+
+    .contact-block a { color: white; }
+
+    .contact-block p:last-child { margin-bottom: 0; }
+
+    .site-footer {
+      padding: 2.2rem 1.25rem max(2.2rem, env(safe-area-inset-bottom));
+      color: var(--muted);
+      background: var(--paper-deep);
+      border-top: 1px solid var(--rule);
+      font-size: .82rem;
+    }
+
+    .site-footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: .6rem 1.5rem;
+    }
+
+    @media (max-width: 760px) {
+      body {
+        background:
+          linear-gradient(90deg, transparent 0 1.15rem, rgba(173, 73, 61, .13) 1.15rem 1.2rem, transparent 1.2rem),
+          repeating-linear-gradient(0deg, rgba(36, 76, 58, .03) 0 1px, transparent 1px 29px),
+          var(--paper);
+        font-size: 16px;
+      }
+
+      .site-header { padding-left: 2.1rem; }
+      .site-header::after { right: -2.4rem; top: 1rem; }
+
+      .layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding-left: 2.1rem;
+      }
+
+      .toc {
+        position: static;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .toc ol {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .toc li:nth-child(odd) { padding-right: .75rem; }
+      .toc li:nth-child(even) { padding-left: .75rem; }
+      .toc a { grid-template-columns: 1.5rem 1fr; }
+
+      .identity,
+      .retention-item { grid-template-columns: 1fr; gap: .25rem; }
+      .identity dd { padding-top: 0; }
+      .retention-item dd { padding-top: 0; }
+    }
+
+    @media (max-width: 440px) {
+      .toc ol { grid-template-columns: 1fr; }
+      .toc li:nth-child(n) { padding-inline: 0; }
+      h1 { font-size: 2.7rem; }
+      .summary { padding: 1.2rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
+    @media print {
+      body { background: white; font-size: 11pt; }
+      .skip-link, .toc { display: none; }
+      .site-header { padding: 0 0 1.5rem; }
+      .site-header::after { display: none; }
+      .layout { display: block; width: 100%; padding: 1.5rem 0; }
+      .summary { box-shadow: none; }
+      section { break-inside: avoid; }
+      a { color: inherit; }
+      .site-footer { background: white; padding-inline: 0; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳到主要內容</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="eyebrow">飯譯 OrderLingo · Privacy Policy</p>
+      <h1>隱私權政策</h1>
+      <p class="lede">
+        <span>出國點餐，不再靠猜</span>
+        <span lang="en">Order Abroad, No More Guessing.</span>
+      </p>
+      <div class="meta" aria-label="政策版本資訊">
+        <span>飯譯 OrderLingo</span>
+        <span>版本 1.0</span>
+        <span>生效日期 <time datetime="2026-07-15">2026 年 7 月 15 日</time></span>
+        <span>最近更新 <time datetime="2026-07-15">2026 年 7 月 15 日</time></span>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="本頁目錄">
+      <p class="toc-title">頁面目錄</p>
+      <ol>
+        <li><a href="#scope">適用範圍</a></li>
+        <li><a href="#data">處理的資料</a></li>
+        <li><a href="#providers">第三方服務</a></li>
+        <li><a href="#retention">保存與刪除</a></li>
+        <li><a href="#rights">你的選擇</a></li>
+        <li><a href="#choice-impact">不提供的影響</a></li>
+        <li><a href="#security">資料安全</a></li>
+        <li><a href="#transfer">國際傳輸</a></li>
+        <li><a href="#children">未成年人</a></li>
+        <li><a href="#changes">政策變更</a></li>
+        <li><a href="#contact">聯絡我們</a></li>
+      </ol>
+    </nav>
+
+    <main id="main-content">
+      <aside class="summary" aria-labelledby="summary-title">
+        <h2 id="summary-title">先說重點</h2>
+        <ul>
+          <li>不需註冊帳號，也不要求姓名、電話、Apple ID 或付款資訊。</li>
+          <li>只有你主動開始辨識時，壓縮後的菜單照片才會經 Cloudflare 傳送至 Google Gemini。</li>
+          <li>我們目前不使用廣告 SDK、跨 App 追蹤或行銷分析工具，也不出售或出租資料。</li>
+          <li>辨識歷史與壓縮照片留在 iPhone 的 App 私有空間，供當天重看；可手動刪除，跨日也會由 App 清除。</li>
+        </ul>
+      </aside>
+
+      <p>飯譯 OrderLingo（以下稱「本 App」）由飯譯 OrderLingo 開發團隊（以下稱「我們」）提供。本政策說明你使用本 App 時，哪些資料會留在 iPhone、哪些資料會傳送至雲端，以及你可以如何管理資料。</p>
+
+      <section id="scope" aria-labelledby="scope-title">
+        <h2 id="scope-title">1. 適用範圍與資料管理者</h2>
+        <p>本政策適用於 iOS 版「飯譯 OrderLingo」及其為提供功能所使用的後端服務。</p>
+        <dl class="identity">
+          <dt>資料管理者</dt>
+          <dd>飯譯 OrderLingo 開發團隊</dd>
+          <dt>聯絡信箱</dt>
+          <dd><a href="mailto:scmou104@gmail.com">scmou104@gmail.com</a></dd>
+          <dt>蒐集目的</dt>
+          <dd>提供菜單辨識、翻譯、菜品說明、免費使用額度、安全維護、錯誤排查與使用者支援。</dd>
+          <dt>利用地區</dt>
+          <dd>你的裝置所在地，以及 Cloudflare、Google 或其受託服務商提供服務的國家或地區。</dd>
+          <dt>利用對象</dt>
+          <dd>我們及本政策列出的雲端服務供應商；除法律要求外，不會提供給廣告商或資料仲介商。</dd>
+        </dl>
+      </section>
+
+      <section id="data" aria-labelledby="data-title">
+        <h2 id="data-title">2. 我們處理的資料</h2>
+
+        <h3>2.1 菜單照片與辨識內容</h3>
+        <p>當你主動開始辨識時，本 App 會處理你選擇或拍攝的菜單照片。照片會先在 iPhone 上縮小與壓縮，再傳送至我們的 Cloudflare Worker，並由 Worker 轉送至 Google Gemini API。傳送內容可能包括：</p>
+        <ul>
+          <li>壓縮後的菜單照片；</li>
+          <li>你選擇的來源語言提示與目標翻譯語言；</li>
+          <li>為執行辨識而加入的系統提示文字；</li>
+          <li>Gemini 產生的菜名、翻譯、價格、位置與其他辨識結果。</li>
+        </ul>
+        <p>用途僅限於完成你要求的菜單辨識與翻譯。我們的 Worker 應用程式目前不會主動將菜單照片寫入 Cloudflare KV 或其他資料庫；不過 Cloudflare 與 Google 仍可能依其服務條款、安全與營運政策處理網路請求與日誌。</p>
+        <p class="callout"><strong>請勿上傳敏感內容。</strong> 請避免照片含有人臉、姓名、聯絡方式、付款資訊、身分證件、醫療資訊或其他與菜單辨識無關的內容。如果照片中包含第三人的資料，請先確保你有權提供。</p>
+
+        <h3>2.2 菜品資訊查詢</h3>
+        <p>當你點選菜品的「AI 資訊」功能時，本 App 會傳送菜名、來源語言、目標語言，以及可能用於辨識同名菜色的菜單文字情境。Gemini 會產生一般性的食材、口味、烹調方式、常見過敏原、辣度、素食判斷與文化背景。</p>
+        <p>為減少重複的 AI 請求，本 App 可能在 iPhone 的本機偏好設定中快取菜品說明；Worker 也可能在 Cloudflare KV 快取以菜名與語言組合產生的通用菜品說明。伺服器端通用菜品快取不會附帶你的匿名裝置識別碼。</p>
+        <p class="callout"><strong>AI 內容可能有誤。</strong> 尤其是食材、過敏原與素食判斷，請以餐廳或食品業者提供的資訊為準，不應把 AI 回答作為醫療或飲食安全的唯一依據。</p>
+
+        <h3>2.3 匿名裝置識別碼與每日配額</h3>
+        <p>本 App 會隨機產生一組裝置識別碼，保存在 App 的本機偏好設定中。它不是 Apple 的廣告識別碼，也不包含姓名、電話、電子郵件、Apple ID 或裝置序號。</p>
+        <p>每次使用雲端功能時，識別碼會透過 <code>X-Device-Id</code> 請求標頭傳送至 Worker。Worker 會在 Cloudflare KV 以「匿名識別碼＋UTC 日期」記錄當日使用次數，用來顯示及限制免費額度。這些紀錄不會被用於廣告、跨服務追蹤或建立使用者輪廓。</p>
+
+        <h3>2.4 網路與技術資料</h3>
+        <p>連線至雲端服務時，Cloudflare、Google 及其基礎設施可能自動處理 IP 位址、請求時間、HTTP 標頭、裝置或網路技術資訊、安全過濾結果、錯誤資訊與用量指標。這些資料可能用於傳輸請求、防止濫用、維持服務、安全監控、計費或符合法律義務。</p>
+        <p>我們目前沒有在 App 中整合廣告、第三方行銷分析或跨 App 追蹤 SDK。</p>
+
+        <h3>2.5 本機辨識歷史</h3>
+        <p>辨識完成後，壓縮後的照片、辨識結果、來源語言、目標語言與建立時間會保存在這台 iPhone 的 App 私有 Application Support 目錄，且該目錄會排除於 iCloud 備份。</p>
+        <ul>
+          <li>歷史紀錄僅供你在當天重看；</li>
+          <li>App 在首頁或歷史頁啟動清理時，會刪除早於當天的紀錄；</li>
+          <li>你可以在歷史紀錄中向左滑動，立即刪除個別紀錄；</li>
+          <li>刪除本 App 會一併移除 App 的本機資料。</li>
+        </ul>
+      </section>
+
+      <section id="providers" aria-labelledby="providers-title">
+        <h2 id="providers-title">3. 第三方服務</h2>
+        <div class="provider">
+          <h3>Cloudflare</h3>
+          <p>我們使用 Cloudflare Workers 傳遞 API 請求，並使用 Cloudflare KV 保存每日配額計數與通用菜品說明快取。Cloudflare 可能以服務供應商身分處理網路與技術資料。詳見 <a href="https://www.cloudflare.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Cloudflare 隱私權政策<span aria-hidden="true"> ↗</span></a>。</p>
+        </div>
+        <div class="provider">
+          <h3>Google Gemini API</h3>
+          <p>我們使用 Google Gemini API 處理菜單圖片、辨識提示、翻譯與菜品資訊。Google 對資料的使用方式取決於本服務所使用的 Gemini API 方案及當時適用的條款：</p>
+          <ul>
+            <li>依 Google 現行政策，為偵測與防止濫用，提示、情境資訊與模型輸出可能保留 55 天；被安全系統標記的內容可能由 Google 授權人員檢視。</li>
+            <li>使用未付費 Gemini API 服務時，Google 可能使用提交內容與回覆來提供、改善及開發其產品與機器學習技術，並可能由人工審查人員處理。</li>
+            <li>使用已啟用 Cloud Billing 的付費服務時，Google 表示不會使用提示、檔案或回覆來改善其產品，但仍會為安全、防止濫用與法令要求在有限期間內記錄資料。</li>
+          </ul>
+          <p>請參閱 <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener noreferrer">Gemini API 附加服務條款<span aria-hidden="true"> ↗</span></a>、<a href="https://ai.google.dev/gemini-api/docs/usage-policies" target="_blank" rel="noopener noreferrer">Gemini API 濫用監控說明<span aria-hidden="true"> ↗</span></a>及 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google 隱私權政策<span aria-hidden="true"> ↗</span></a>。第三方條款可能由供應商更新；如其處理方式有重大變更，我們會評估並更新本政策與服務設定。</p>
+        </div>
+      </section>
+
+      <section id="retention" aria-labelledby="retention-title">
+        <h2 id="retention-title">4. 資料保存與刪除</h2>
+        <dl class="retention-list">
+          <div class="retention-item">
+            <dt>菜單照片與辨識請求</dt>
+            <dd>Worker 應用程式不主動保存照片；Google 依現行濫用監控政策可能保存提示、情境與輸出 55 天，其他處理依適用方案與供應商條款。</dd>
+          </div>
+          <div class="retention-item">
+            <dt>本機辨識歷史與照片</dt>
+            <dd>供當天重看；可手動刪除，App 跨日清理，或於刪除 App 時移除。</dd>
+          </div>
+          <div class="retention-item">
+            <dt>本機菜品說明快取</dt>
+            <dd>為重複查詢提供快取，保留至資料被覆寫、App 資料被系統清除或你刪除 App。</dd>
+          </div>
+          <div class="retention-item">
+            <dt>匿名裝置識別碼</dt>
+            <dd>保留至 App 資料被系統清除或你刪除 App；重新安裝可能產生新的識別碼。</dd>
+          </div>
+          <div class="retention-item">
+            <dt>每日配額計數</dt>
+            <dd>依日期分開保存在 Cloudflare KV；目前可能保留至我們執行維護清理，或依可合理定位之有效請求予以刪除。</dd>
+          </div>
+          <div class="retention-item">
+            <dt>通用菜品說明快取</dt>
+            <dd>保留至內容被更新、服務維護清理或不再需要提供快取功能。此快取不附帶匿名裝置識別碼。</dd>
+          </div>
+          <div class="retention-item">
+            <dt>供應商安全與技術日誌</dt>
+            <dd>依 Cloudflare、Google 當時適用的安全、營運、契約與法令保存政策處理。</dd>
+          </div>
+        </dl>
+        <p>如法律要求、處理爭議、維護安全或建立、行使、防禦法律權利所必要，我們或服務供應商可能在合理期間內保留必要紀錄。</p>
+      </section>
+
+      <section id="rights" aria-labelledby="rights-title">
+        <h2 id="rights-title">5. 你的選擇與權利</h2>
+        <p>你可以：</p>
+        <ul>
+          <li>在首次雲端辨識告知畫面選擇「暫不使用」；不同意時，雲端辨識功能不會啟用。</li>
+          <li>不選擇或不拍攝照片，避免傳送任何菜單圖片。</li>
+          <li>在歷史紀錄中刪除個別本機紀錄。</li>
+          <li>停止使用雲端辨識，或刪除本 App 以移除本機資料並撤回後續處理的同意。</li>
+          <li>依適用法律請求查詢或閱覽、取得複製本、補充或更正、停止蒐集／處理／利用，或刪除我們可識別並控制的個人資料。</li>
+        </ul>
+        <p>若要提出資料權利或刪除請求，請寄信至 <a href="mailto:scmou104@gmail.com?subject=%E9%A3%AF%E8%AD%AF%20OrderLingo%20%E9%9A%B1%E7%A7%81%E8%AB%8B%E6%B1%82">scmou104@gmail.com</a>，主旨註明「飯譯 OrderLingo 隱私請求」，並說明你的請求內容。我們可能需要合理資訊來驗證請求並避免誤刪他人資料。</p>
+        <p>本 App 不提供帳號，伺服器端配額紀錄僅使用隨機識別碼。因此，如果現有資訊無法合理對應到特定紀錄，我們可能無法僅憑姓名或電子郵件定位該匿名紀錄；遇到這種情況，我們會說明可行的處理方式。第三方供應商所控制的資料也可能需要依其隱私權政策直接提出請求。</p>
+      </section>
+
+      <section id="choice-impact" aria-labelledby="choice-impact-title">
+        <h2 id="choice-impact-title">6. 不提供資料的影響</h2>
+        <p>你可以自由選擇是否提供菜單照片與使用雲端功能。不提供照片或不同意雲端處理時，你仍可閱讀本政策，但無法使用需要遠端模型的菜單辨識、翻譯及 AI 菜品資訊功能。</p>
+      </section>
+
+      <section id="security" aria-labelledby="security-title">
+        <h2 id="security-title">7. 資料安全</h2>
+        <p>我們採取與服務規模相稱的合理措施，例如使用 HTTPS 傳輸、縮小傳送圖片、將 API 金鑰保存在伺服器端、限制 Worker 接收的必要欄位，以及把本機歷史放在 App 私有空間。然而，任何網路傳輸或儲存方式都無法保證百分之百安全。</p>
+      </section>
+
+      <section id="transfer" aria-labelledby="transfer-title">
+        <h2 id="transfer-title">8. 國際傳輸</h2>
+        <p>Cloudflare、Google 或其受託服務商可能在台灣以外的國家或地區處理、暫存或快取資料。這些地區的資料保護法律可能與你所在地不同。你同意使用雲端功能時，即表示你了解完成服務所必要的跨境處理；我們會選用具公開隱私與安全承諾的服務供應商，並依適用法律處理。</p>
+      </section>
+
+      <section id="children" aria-labelledby="children-title">
+        <h2 id="children-title">9. 未成年人</h2>
+        <p>本 App 的雲端 AI 功能不以未滿 18 歲者為對象。未滿 18 歲者不應使用雲端辨識或提交任何內容。若你認為未成年人已透過本 App 提交個人資料，請聯絡我們；在可合理定位且法律要求的範圍內，我們會採取刪除或其他適當措施。</p>
+      </section>
+
+      <section id="changes" aria-labelledby="changes-title">
+        <h2 id="changes-title">10. 政策變更</h2>
+        <p>當功能、資料處理方式、服務供應商或法令要求發生變更時，我們可能更新本政策。更新後會調整頁首的「最近更新」日期；如變更會重大影響你的權益，我們會在 App 內以適當方式重新告知或取得同意。</p>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">11. 聯絡我們</h2>
+        <div class="contact-block">
+          <p>如對本政策、資料使用或權利行使有任何問題，請聯絡：</p>
+          <p><strong>資料管理者：</strong>飯譯 OrderLingo 開發團隊<br>
+          <strong>電子郵件：</strong><a href="mailto:scmou104@gmail.com?subject=%E9%A3%AF%E8%AD%AF%20OrderLingo%20%E9%9A%B1%E7%A7%81%E8%AB%8B%E6%B1%82">scmou104@gmail.com</a><br>
+          <strong>建議信件主旨：</strong>飯譯 OrderLingo 隱私請求</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <span>© 2026 飯譯 OrderLingo 開發團隊</span>
+      <span>本頁不使用 Cookie、追蹤器或外部字型。</span>
+    </div>
+  </footer>
+</body>
+</html>
