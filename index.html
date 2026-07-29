@@ -424,9 +424,9 @@
       </p>
       <div class="meta" aria-label="政策版本資訊">
         <span>飯譯 OrderLingo</span>
-        <span>版本 1.0</span>
+        <span>版本 1.1</span>
         <span>生效日期 <time datetime="2026-07-15">2026 年 7 月 15 日</time></span>
-        <span>最近更新 <time datetime="2026-07-15">2026 年 7 月 15 日</time></span>
+        <span>最近更新 <time datetime="2026-07-29">2026 年 7 月 29 日</time></span>
       </div>
     </div>
   </header>
@@ -455,7 +455,8 @@
         <ul>
           <li>不需註冊帳號，也不要求姓名、電話、Apple ID 或付款資訊。</li>
           <li>只有你主動開始辨識時，壓縮後的菜單照片才會經 Cloudflare 傳送至 Google Gemini。</li>
-          <li>我們目前不使用廣告 SDK、跨 App 追蹤或行銷分析工具，也不出售或出租資料。</li>
+          <li>本 App 顯示 Google AdMob 廣告，並可自願觀看獎勵廣告換取當日額外辨識次數。我們一律要求非個人化廣告，也不請求 Apple 追蹤許可，因此不使用廣告識別碼（IDFA）做跨 App 追蹤。</li>
+          <li>我們不使用行銷分析工具，也不出售或出租資料。</li>
           <li>辨識歷史與壓縮照片留在 iPhone 的 App 私有空間，供當天重看；可手動刪除，跨日也會由 App 清除。</li>
         </ul>
       </aside>
@@ -471,11 +472,11 @@
           <dt>聯絡信箱</dt>
           <dd><a href="mailto:icimcse100@gmail.com">icimcse100@gmail.com</a></dd>
           <dt>蒐集目的</dt>
-          <dd>提供菜單辨識、翻譯、菜品說明、免費使用額度、安全維護、錯誤排查與使用者支援。</dd>
+          <dd>提供菜單辨識、翻譯、菜品說明、免費使用額度、廣告顯示與獎勵額度驗證、安全維護、錯誤排查與使用者支援。</dd>
           <dt>利用地區</dt>
           <dd>你的裝置所在地，以及 Cloudflare、Google 或其受託服務商提供服務的國家或地區。</dd>
           <dt>利用對象</dt>
-          <dd>我們及本政策列出的雲端服務供應商；除法律要求外，不會提供給廣告商或資料仲介商。</dd>
+          <dd>我們，以及本政策列出的雲端與廣告服務供應商（Cloudflare、Google Gemini API、Google AdMob）；我們不會出售或出租你的資料，也不會提供給資料仲介商。</dd>
         </dl>
       </section>
 
@@ -500,11 +501,12 @@
 
         <h3>2.3 匿名裝置識別碼與每日配額</h3>
         <p>本 App 會隨機產生一組裝置識別碼，保存在 App 的本機偏好設定中。它不是 Apple 的廣告識別碼，也不包含姓名、電話、電子郵件、Apple ID 或裝置序號。</p>
-        <p>每次使用雲端功能時，識別碼會透過 <code>X-Device-Id</code> 請求標頭傳送至 Worker。Worker 會在 Cloudflare KV 以「匿名識別碼＋UTC 日期」記錄當日使用次數，用來顯示及限制免費額度。這些紀錄不會被用於廣告、跨服務追蹤或建立使用者輪廓。</p>
+        <p>每次使用雲端功能時，識別碼會透過 <code>X-Device-Id</code> 請求標頭傳送至 Worker。Worker 會在 Cloudflare KV 以「匿名識別碼＋UTC 日期」記錄當日使用次數，用來顯示及限制免費額度。</p>
+        <p>當你自願觀看獎勵廣告時，這組匿名識別碼也會提供給 Google AdMob，作為獎勵伺服器端驗證的使用者識別欄位，讓 Google 在你看完廣告後能通知我們的 Worker 該把額度記給哪一台裝置（詳見 2.6）。除此之外，我們不會將這組識別碼用於跨服務追蹤或建立使用者輪廓。</p>
 
         <h3>2.4 網路與技術資料</h3>
         <p>連線至雲端服務時，Cloudflare、Google 及其基礎設施可能自動處理 IP 位址、請求時間、HTTP 標頭、裝置或網路技術資訊、安全過濾結果、錯誤資訊與用量指標。這些資料可能用於傳輸請求、防止濫用、維持服務、安全監控、計費或符合法律義務。</p>
-        <p>我們目前沒有在 App 中整合廣告、第三方行銷分析或跨 App 追蹤 SDK。</p>
+        <p>除了 2.6 說明的廣告服務外，我們沒有在 App 中整合第三方行銷分析或跨 App 追蹤 SDK。</p>
 
         <h3>2.5 本機辨識歷史</h3>
         <p>辨識完成後，壓縮後的照片、辨識結果、來源語言、目標語言與建立時間會保存在這台 iPhone 的 App 私有 Application Support 目錄，且該目錄會排除於 iCloud 備份。</p>
@@ -514,6 +516,23 @@
           <li>你可以在歷史紀錄中向左滑動，立即刪除個別紀錄；</li>
           <li>刪除本 App 會一併移除 App 的本機資料。</li>
         </ul>
+
+        <h3>2.6 廣告與獎勵額度</h3>
+        <p>本 App 使用 Google AdMob 顯示兩種廣告：</p>
+        <ul>
+          <li><strong>首頁底部的橫幅廣告</strong>，開啟首頁時即會載入；</li>
+          <li><strong>獎勵廣告</strong>，只有在你主動點選「看廣告 +3 次」時才會播放，看完可為當日增加 3 次免費辨識，每日最多透過廣告增加 9 次。</li>
+        </ul>
+        <p>我們在每一次廣告請求中都要求<strong>非個人化廣告</strong>，也不會顯示 Apple 的追蹤許可（App Tracking Transparency）詢問，因此不會取得或使用 Apple 廣告識別碼（IDFA），廣告內容不會依你的跨 App 行為個人化。</p>
+        <p>為了投放廣告、控制同一支廣告的重複次數並防止廣告詐騙，Google AdMob 可能處理下列資料：裝置層級識別碼、由 IP 位址推估的粗略位置、廣告曝光與點擊等互動紀錄、廣告播放的效能資料，以及當機診斷資料。這些資料由 Google 依其政策處理，我們無法存取個別使用者層級的原始資料。</p>
+        <p>獎勵廣告的額度驗證流程如下：</p>
+        <ul>
+          <li>請求獎勵廣告時，我們會把 2.3 所述的匿名裝置識別碼提供給 AdMob，作為伺服器端驗證的使用者識別欄位；</li>
+          <li>你看完廣告後，Google 會以帶有數位簽章的請求通知我們的 Cloudflare Worker；</li>
+          <li>Worker 驗證簽章與交易編號後，才把額外次數記到該匿名識別碼當日的紀錄上。</li>
+        </ul>
+        <p>採用這個方式的原因是額度不能由 App 自行認定，否則容易被偽造。獎勵次數的紀錄保存在 Cloudflare KV，約 48 小時後自動到期。</p>
+        <p class="callout"><strong>不想看獎勵廣告？</strong> 不點選該按鈕就不會播放，也不會把匿名裝置識別碼提供給 AdMob 做獎勵驗證。橫幅廣告則是免費版本的一部分，目前無法關閉。</p>
       </section>
 
       <section id="providers" aria-labelledby="providers-title">
@@ -531,6 +550,11 @@
             <li>使用已啟用 Cloud Billing 的付費服務時，Google 表示不會使用提示、檔案或回覆來改善其產品，但仍會為安全、防止濫用與法令要求在有限期間內記錄資料。</li>
           </ul>
           <p>請參閱 <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener noreferrer">Gemini API 附加服務條款<span aria-hidden="true"> ↗</span></a>、<a href="https://ai.google.dev/gemini-api/docs/usage-policies" target="_blank" rel="noopener noreferrer">Gemini API 濫用監控說明<span aria-hidden="true"> ↗</span></a>及 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google 隱私權政策<span aria-hidden="true"> ↗</span></a>。第三方條款可能由供應商更新；如其處理方式有重大變更，我們會評估並更新本政策與服務設定。</p>
+        </div>
+        <div class="provider">
+          <h3>Google AdMob</h3>
+          <p>我們使用 Google AdMob 顯示橫幅廣告與獎勵廣告，並使用其伺服器端驗證機制確認獎勵是否有效（詳見 2.6）。AdMob 可能處理裝置層級識別碼、由 IP 推估的粗略位置、廣告互動與效能診斷資料。我們一律要求非個人化廣告，且不請求 Apple 追蹤許可。</p>
+          <p>詳見 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google 隱私權政策<span aria-hidden="true"> ↗</span></a>與 <a href="https://support.google.com/admob/answer/9012903" target="_blank" rel="noopener noreferrer">Google 廣告技術供應商說明<span aria-hidden="true"> ↗</span></a>。你也可以在 iPhone 的「設定 → 隱私權與安全性 → 追蹤」與「Apple 廣告」中管理系統層級的廣告偏好。</p>
         </div>
       </section>
 
@@ -558,6 +582,14 @@
             <dd>依日期分開保存在 Cloudflare KV；目前可能保留至我們執行維護清理，或依可合理定位之有效請求予以刪除。</dd>
           </div>
           <div class="retention-item">
+            <dt>廣告獎勵次數與獎勵交易編號</dt>
+            <dd>依日期分開保存在 Cloudflare KV，約 48 小時後自動到期。交易編號用於防止同一次獎勵被重複計算。</dd>
+          </div>
+          <div class="retention-item">
+            <dt>廣告投放與成效資料</dt>
+            <dd>由 Google AdMob 依其隱私權政策保存與處理；我們無法存取個別使用者層級的原始資料。</dd>
+          </div>
+          <div class="retention-item">
             <dt>通用菜品說明快取</dt>
             <dd>保留至內容被更新、服務維護清理或不再需要提供快取功能。此快取不附帶匿名裝置識別碼。</dd>
           </div>
@@ -575,6 +607,8 @@
         <ul>
           <li>在首次雲端辨識告知畫面選擇「暫不使用」；不同意時，雲端辨識功能不會啟用。</li>
           <li>不選擇或不拍攝照片，避免傳送任何菜單圖片。</li>
+          <li>不點選「看廣告 +3 次」，就不會播放獎勵廣告，也不會把匿名裝置識別碼提供給 AdMob 做獎勵驗證。</li>
+          <li>在 iPhone 的「設定 → 隱私權與安全性」中管理系統層級的廣告與追蹤偏好。本 App 一律要求非個人化廣告，因此不需要你額外關閉追蹤。</li>
           <li>在歷史紀錄中刪除個別本機紀錄。</li>
           <li>停止使用雲端辨識，或刪除本 App 以移除本機資料並撤回後續處理的同意。</li>
           <li>依適用法律請求查詢或閱覽、取得複製本、補充或更正、停止蒐集／處理／利用，或刪除我們可識別並控制的個人資料。</li>
