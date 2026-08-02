@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="飯譯 OrderLingo iOS App 隱私權政策：了解菜單照片、雲端 AI 辨識、匿名配額與本機歷史如何被處理。">
+  <meta name="description" content="飯譯 OrderLingo iOS App 隱私權政策與使用支援：菜單照片、雲端 AI 辨識、匿名配額與本機歷史如何被處理，以及常見問題與聯絡方式。">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#f5f0e5">
-  <title>隱私權政策｜飯譯 OrderLingo</title>
+  <title>隱私權政策與使用支援｜飯譯 OrderLingo</title>
   <style>
     :root {
       color-scheme: light;
@@ -426,7 +426,7 @@
         <span>飯譯 OrderLingo</span>
         <span>版本 1.1</span>
         <span>生效日期 <time datetime="2026-07-15">2026 年 7 月 15 日</time></span>
-        <span>最近更新 <time datetime="2026-07-29">2026 年 7 月 29 日</time></span>
+        <span>最近更新 <time datetime="2026-08-02">2026 年 8 月 2 日</time></span>
       </div>
     </div>
   </header>
@@ -446,6 +446,7 @@
         <li><a href="#children">未成年人</a></li>
         <li><a href="#changes">政策變更</a></li>
         <li><a href="#contact">聯絡我們</a></li>
+        <li><a href="#support">使用支援與常見問題</a></li>
       </ol>
     </nav>
 
@@ -634,7 +635,9 @@
 
       <section id="children" aria-labelledby="children-title">
         <h2 id="children-title">9. 未成年人</h2>
-        <p>本 App 的雲端 AI 功能不以未滿 18 歲者為對象。未滿 18 歲者不應使用雲端辨識或提交任何內容。若你認為未成年人已透過本 App 提交個人資料，請聯絡我們；在可合理定位且法律要求的範圍內，我們會採取刪除或其他適當措施。</p>
+        <p>本 App 的雲端 AI 功能不以未滿 18 歲者為對象，這是我們所使用的 AI 服務供應商在其條款中的要求。</p>
+        <p>首次啟用雲端辨識前，App 會要求你確認已滿 18 歲；未完成確認就無法同意，雲端辨識、翻譯與 AI 菜品資訊也不會啟用。此確認為自我聲明，僅保存在這台 iPhone 的本機偏好設定中，不會傳送至雲端。</p>
+        <p>未滿 18 歲者不應使用雲端辨識或提交任何內容。若你認為未成年人已透過本 App 提交個人資料，請聯絡我們；在可合理定位且法律要求的範圍內，我們會採取刪除或其他適當措施。</p>
       </section>
 
       <section id="changes" aria-labelledby="changes-title">
@@ -650,6 +653,41 @@
           <strong>電子郵件：</strong><a href="mailto:icimcse100@gmail.com?subject=%E9%A3%AF%E8%AD%AF%20OrderLingo%20%E9%9A%B1%E7%A7%81%E8%AB%8B%E6%B1%82">icimcse100@gmail.com</a><br>
           <strong>建議信件主旨：</strong>飯譯 OrderLingo 隱私請求</p>
         </div>
+      </section>
+
+      <section id="support" aria-labelledby="support-title">
+        <h2 id="support-title">12. 使用支援與常見問題</h2>
+        <p>使用上遇到問題，可先看以下說明；若仍未解決，請寄信至 <a href="mailto:icimcse100@gmail.com?subject=%E9%A3%AF%E8%AD%AF%20OrderLingo%20%E4%BD%BF%E7%94%A8%E6%94%AF%E6%8F%B4">icimcse100@gmail.com</a>，主旨註明「飯譯 OrderLingo 使用支援」，並附上問題畫面、iPhone 型號與 iOS 版本。請勿寄送含個人資料的菜單照片。</p>
+
+        <h3>快速開始</h3>
+        <ol>
+          <li><strong>拍攝或選取菜單：</strong>保持畫面清楚、光線均勻，並盡量避免反光與傾斜。</li>
+          <li><strong>等待雲端辨識：</strong>本 App 會整理菜名、價格與繁體中文翻譯；此步驟需要網路連線。</li>
+          <li><strong>定位並了解菜品：</strong>使用菜品旁的按鈕回到原圖定位，或查看食材、口味與常見過敏原等 AI 資訊。</li>
+        </ol>
+
+        <h3>為什麼辨識結果不完整或不正確？</h3>
+        <p>AI 可能受模糊、反光、手寫字、特殊字型或複雜排版影響。建議一次拍攝一頁、讓文字占滿畫面，並在光線均勻處重新拍攝。辨識與菜品資訊僅供參考；食材、素食、過敏原與價格仍應向餐廳確認。</p>
+
+        <h3>菜單照片會傳到哪裡？</h3>
+        <p>照片會先壓縮，再經由 Cloudflare Worker 傳送至 Google 的 Gemini API 進行辨識與翻譯。本 App 不要求登入，也不會把菜單照片加入任何雲端相簿。詳細處理方式見<a href="#data">第 2 節</a>與<a href="#providers">第 3 節</a>。</p>
+
+        <h3>每日免費辨識額度何時更新？</h3>
+        <p>額度由伺服器按 UTC 日期計算，因此在台灣通常約於上午 8 時進入新的一日；實際時間可能因時區與服務狀態略有差異。額度用完時，你可以自行選擇觀看獎勵廣告換取當日額外次數。菜品資訊與當日已保存的本機歷史不受剩餘額度影響。</p>
+
+        <h3>為什麼歷史紀錄不見了？</h3>
+        <p>辨識歷史只保存在你的 iPhone，並以當日快速回看為目的；跨日後會自動清除。刪除 App 也會移除本機歷史，且無法從伺服器復原。</p>
+
+        <h3>需要建立帳號嗎？</h3>
+        <p>不需要。App 會在裝置上產生一組不含姓名、電話或 Apple ID 的隨機識別碼，用於計算每日免費額度。它不是廣告追蹤識別碼，也不會用於跨 App 追蹤。</p>
+
+        <h3>如何清除資料或提出隱私請求？</h3>
+        <p>本機歷史可從 App 內滑動刪除；移除 App 會一併刪除本機保存資料。其他資料權利或刪除請求請依<a href="#contact">第 11 節</a>聯絡我們。我們可能需要合理資訊協助定位匿名紀錄。</p>
+
+        <h3>App 可以離線使用嗎？</h3>
+        <p>新的菜單辨識與 AI 菜品資訊需要網路連線。已保存在裝置上的當日辨識歷史仍可開啟，但部分內容可能需要重新連線。</p>
+
+        <p class="callout"><strong>年齡與安全提醒：</strong>目前使用的雲端 AI 功能僅供年滿 18 歲者使用（見<a href="#children">第 9 節</a>）。AI 內容可能有誤，不應取代餐廳對食材、過敏原或飲食限制的正式說明。</p>
       </section>
     </main>
   </div>
